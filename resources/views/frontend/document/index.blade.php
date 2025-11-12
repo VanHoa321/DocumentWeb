@@ -138,7 +138,7 @@
 
                             documentsGrid += `
                                 <div class="col-md-4 col-lg-3">
-                                    <div class="product-item">
+                                    <div class="product-item border border-light">
                                         <div class="product-img">
                                             ${isFreeLabel}
                                             <a href="/document-details/${item.id}">

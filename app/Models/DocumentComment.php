@@ -13,10 +13,12 @@ class DocumentComment extends Model
         'document_id',
         'content'
     ];
+
     public function user()
     {
         return $this->belongsTo(User::class);
     }
+    
     public function document()
     {
         return $this->belongsTo(Document::class);

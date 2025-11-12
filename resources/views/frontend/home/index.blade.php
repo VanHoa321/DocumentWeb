@@ -45,68 +45,68 @@
             </div>
             <div class="product-slider owl-carousel owl-theme wow fadeInUp" data-wow-delay=".25s">
                 @foreach ($latestDocuments as $item)
-                <div class="product-item">
-                    <div class="product-img">
-                        @if ($item->is_free)
-                        <span class="type hot">Miễn phí</span>
-                        @elseif (!$item->is_new)
-                        <span class="type discount">Trả phí</span>
-                        @endif
-                        <a href="/document-details/{{ $item->id }}"><img src="{{ asset($item->cover_image) }}" alt="{{ $item->title }}"></a>
-                        <div class="product-action-wrap">
-                            <div class="product-action ms-3">
-                                <a class="mb-2" href="/document-details/{{ $item->id }}" data-tooltip="tooltip" title="Xem chi tiết"><i class="far fa-eye"></i></a>
-                                <a href="#" data-tooltip="tooltip" title="{{ Auth::check() && $item->favourited_by_user ? 'Bỏ yêu thích' : 'Yêu thích' }}"
-                                    class="favourite-btn {{ Auth::check() && $item->favourited_by_user ? 'favourited' : '' }}"
-                                    data-document-id="{{ $item->id }}"
-                                    data-is-favourited="{{ Auth::check() && $item->favourited_by_user ? 'true' : 'false' }}"
-                                    @if (!Auth::check()) data-requires-login="true" @endif>
-                                    <i class="far fa-heart"></i>
-                                </a>
+                    <div class="product-item border border-light">
+                        <div class="product-img">
+                            @if ($item->is_free)
+                            <span class="type hot">Miễn phí</span>
+                            @elseif (!$item->is_new)
+                            <span class="type discount">Trả phí</span>
+                            @endif
+                            <a href="/document-details/{{ $item->id }}"><img src="{{ asset($item->cover_image) }}" alt="{{ $item->title }}"></a>
+                            <div class="product-action-wrap">
+                                <div class="product-action ms-3">
+                                    <a class="mb-2" href="/document-details/{{ $item->id }}" data-tooltip="tooltip" title="Xem chi tiết"><i class="far fa-eye"></i></a>
+                                    <a href="#" data-tooltip="tooltip" title="{{ Auth::check() && $item->favourited_by_user ? 'Bỏ yêu thích' : 'Yêu thích' }}"
+                                        class="favourite-btn {{ Auth::check() && $item->favourited_by_user ? 'favourited' : '' }}"
+                                        data-document-id="{{ $item->id }}"
+                                        data-is-favourited="{{ Auth::check() && $item->favourited_by_user ? 'true' : 'false' }}"
+                                        @if (!Auth::check()) data-requires-login="true" @endif>
+                                        <i class="far fa-heart"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title"><a href="#">{{ $item->title }}</a></h3>
+                            <div class="product-bottom">
+                                <div class="product-price">
+                                    @if($item->price)
+                                        <span><i class="fa-solid fa-coins"></i> {{ number_format($item->price, 0, ',', '.') }} đ</span>
+                                    @else
+                                        <span><i class="fa-solid fa-hand-holding-heart"></i> Miễn phí</span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="product-bottom">
+                                <div class="shop-single-rating">
+                                    @php
+                                        $fullStars = floor($item->average_rating);
+                                        $hasHalfStar = ($item->average_rating - $fullStars) >= 0.5;
+                                        $emptyStars = 5 - $fullStars - ($hasHalfStar ? 1 : 0);
+                                    @endphp
+                                    @for ($i = 0; $i < $fullStars; $i++)
+                                        <i class="fas fa-star"></i>
+                                    @endfor
+                                    @if ($hasHalfStar)
+                                        <i class="fas fa-star-half-alt"></i>
+                                    @endif
+                                    @for ($i = 0; $i < $emptyStars; $i++)
+                                        <i class="far fa-star"></i>
+                                    @endfor
+                                </div>
+                            </div>
+                            <div class="product-bottom">
+                                <div class="product-price">
+                                    <span><i class="fa-solid fa-eye"></i> {{ $item->view_count }} lượt xem</span>
+                                </div>
+                            </div>
+                            <div class="product-bottom">
+                                <div class="product-price">
+                                    <span><i class="fa-solid fa-download"></i> {{ $item->download_count }} lượt tải</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="product-content">
-                        <h3 class="product-title"><a href="#">{{ $item->title }}</a></h3>
-                        <div class="product-bottom">
-                            <div class="product-price">
-                                @if($item->price)
-                                    <span><i class="fa-solid fa-coins"></i> {{ number_format($item->price, 0, ',', '.') }} đ</span>
-                                @else
-                                    <span><i class="fa-solid fa-hand-holding-heart"></i> Miễn phí</span>
-                                @endif
-                            </div>
-                        </div>
-                        <div class="product-bottom">
-                            <div class="shop-single-rating">
-                                @php
-                                    $fullStars = floor($item->average_rating);
-                                    $hasHalfStar = ($item->average_rating - $fullStars) >= 0.5;
-                                    $emptyStars = 5 - $fullStars - ($hasHalfStar ? 1 : 0);
-                                @endphp
-                                @for ($i = 0; $i < $fullStars; $i++)
-                                    <i class="fas fa-star"></i>
-                                @endfor
-                                @if ($hasHalfStar)
-                                    <i class="fas fa-star-half-alt"></i>
-                                @endif
-                                @for ($i = 0; $i < $emptyStars; $i++)
-                                    <i class="far fa-star"></i>
-                                @endfor
-                            </div>
-                        </div>
-                        <div class="product-bottom">
-                            <div class="product-price">
-                                <span><i class="fa-solid fa-eye"></i> {{ $item->view_count }} lượt xem</span>
-                            </div>
-                        </div>
-                        <div class="product-bottom">
-                            <div class="product-price">
-                                <span><i class="fa-solid fa-download"></i> {{ $item->download_count }} lượt tải</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 @endforeach
             </div>
         </div>
@@ -126,68 +126,68 @@
             </div>
             <div class="product-slider owl-carousel owl-theme wow fadeInUp" data-wow-delay=".25s">
                 @foreach ($mostDownloadedDocuments as $item)
-                <div class="product-item">
-                    <div class="product-img">
-                        @if ($item->is_free)
-                            <span class="type hot">Miễn phí</span>
-                        @elseif (!$item->is_new)
-                            <span class="type discount">Trả phí</span>
-                        @endif
-                        <a href="/document-details/{{ $item->id }}"><img src="{{ asset($item->cover_image) }}" alt="{{ $item->title }}"></a>
-                        <div class="product-action-wrap">
-                            <div class="product-action ms-3">
-                                <a class="mb-2" href="/document-details/{{ $item->id }}" data-tooltip="tooltip" title="Xem chi tiết"><i class="far fa-eye"></i></a>
-                                <a href="#" data-tooltip="tooltip" title="{{ Auth::check() && $item->favourited_by_user ? 'Bỏ yêu thích' : 'Yêu thích' }}"
-                                    class="favourite-btn {{ Auth::check() && $item->favourited_by_user ? 'favourited' : '' }}"
-                                    data-document-id="{{ $item->id }}"
-                                    data-is-favourited="{{ Auth::check() && $item->favourited_by_user ? 'true' : 'false' }}"
-                                    @if (!Auth::check()) data-requires-login="true" @endif>
-                                    <i class="far fa-heart"></i>
-                                </a>
+                    <div class="product-item border border-light">
+                        <div class="product-img">
+                            @if ($item->is_free)
+                                <span class="type hot">Miễn phí</span>
+                            @elseif (!$item->is_new)
+                                <span class="type discount">Trả phí</span>
+                            @endif
+                            <a href="/document-details/{{ $item->id }}"><img src="{{ asset($item->cover_image) }}" alt="{{ $item->title }}"></a>
+                            <div class="product-action-wrap">
+                                <div class="product-action ms-3">
+                                    <a class="mb-2" href="/document-details/{{ $item->id }}" data-tooltip="tooltip" title="Xem chi tiết"><i class="far fa-eye"></i></a>
+                                    <a href="#" data-tooltip="tooltip" title="{{ Auth::check() && $item->favourited_by_user ? 'Bỏ yêu thích' : 'Yêu thích' }}"
+                                        class="favourite-btn {{ Auth::check() && $item->favourited_by_user ? 'favourited' : '' }}"
+                                        data-document-id="{{ $item->id }}"
+                                        data-is-favourited="{{ Auth::check() && $item->favourited_by_user ? 'true' : 'false' }}"
+                                        @if (!Auth::check()) data-requires-login="true" @endif>
+                                        <i class="far fa-heart"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="product-content">
+                            <h3 class="product-title"><a href="#">{{ $item->title }}</a></h3>
+                            <div class="product-bottom">
+                                <div class="product-price">
+                                    @if($item->price)
+                                        <span><i class="fa-solid fa-coins"></i> {{ number_format($item->price, 0, ',', '.') }} đ</span>
+                                    @else
+                                        <span><i class="fa-solid fa-hand-holding-heart"></i> Miễn phí</span>
+                                    @endif
+                                </div>
+                            </div>
+                            <div class="product-bottom">
+                                <div class="shop-single-rating">
+                                    @php
+                                        $fullStars = floor($item->average_rating);
+                                        $hasHalfStar = ($item->average_rating - $fullStars) >= 0.5;
+                                        $emptyStars = 5 - $fullStars - ($hasHalfStar ? 1 : 0);
+                                    @endphp
+                                    @for ($i = 0; $i < $fullStars; $i++)
+                                        <i class="fas fa-star"></i>
+                                    @endfor
+                                    @if ($hasHalfStar)
+                                        <i class="fas fa-star-half-alt"></i>
+                                    @endif
+                                    @for ($i = 0; $i < $emptyStars; $i++)
+                                        <i class="far fa-star"></i>
+                                    @endfor
+                                </div>
+                            </div>
+                            <div class="product-bottom">
+                                <div class="product-price">
+                                    <span><i class="fa-solid fa-eye"></i> {{ $item->view_count }} lượt xem</span>
+                                </div>
+                            </div>
+                            <div class="product-bottom">
+                                <div class="product-price">
+                                    <span><i class="fa-solid fa-download"></i> {{ $item->download_count }} lượt tải</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="product-content">
-                        <h3 class="product-title"><a href="#">{{ $item->title }}</a></h3>
-                        <div class="product-bottom">
-                            <div class="product-price">
-                                @if($item->price)
-                                    <span><i class="fa-solid fa-coins"></i> {{ number_format($item->price, 0, ',', '.') }} đ</span>
-                                @else
-                                    <span><i class="fa-solid fa-hand-holding-heart"></i> Miễn phí</span>
-                                @endif
-                            </div>
-                        </div>
-                        <div class="product-bottom">
-                            <div class="shop-single-rating">
-                                @php
-                                    $fullStars = floor($item->average_rating);
-                                    $hasHalfStar = ($item->average_rating - $fullStars) >= 0.5;
-                                    $emptyStars = 5 - $fullStars - ($hasHalfStar ? 1 : 0);
-                                @endphp
-                                @for ($i = 0; $i < $fullStars; $i++)
-                                    <i class="fas fa-star"></i>
-                                @endfor
-                                @if ($hasHalfStar)
-                                    <i class="fas fa-star-half-alt"></i>
-                                @endif
-                                @for ($i = 0; $i < $emptyStars; $i++)
-                                    <i class="far fa-star"></i>
-                                @endfor
-                            </div>
-                        </div>
-                        <div class="product-bottom">
-                            <div class="product-price">
-                                <span><i class="fa-solid fa-eye"></i> {{ $item->view_count }} lượt xem</span>
-                            </div>
-                        </div>
-                        <div class="product-bottom">
-                            <div class="product-price">
-                                <span><i class="fa-solid fa-download"></i> {{ $item->download_count }} lượt tải</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
                 @endforeach
             </div>
         </div>
@@ -205,7 +205,7 @@
             </div>
             <div class="product-slider owl-carousel owl-theme wow fadeInUp" data-wow-delay=".25s">
                 @foreach ($mostViewedDocuments as $item)
-                    <div class="product-item">
+                    <div class="product-item border border-light">
                         <div class="product-img">
                             @if ($item->is_free)
                                 <span class="type hot">Miễn phí</span>

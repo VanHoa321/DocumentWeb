@@ -92,7 +92,7 @@ class DocumentController extends Controller
 
         $item->increment('view_count');
 
-         $client = new Client();
+        $client = new Client();
         $recommendations = [];
 
         try {
@@ -130,13 +130,13 @@ class DocumentController extends Controller
 
         $request->validate([
             'document_id' => 'required|exists:documents,id',
-            'content' => 'required|string|max:1000',
+            'contents' => 'required|string|max:1000',
         ]);
 
         $comment = new DocumentComment();
         $comment->document_id = $request->document_id;
         $comment->user_id = Auth::id();
-        $comment->content = $request->content;
+        $comment->content = $request->contents;
         $comment->created_at = now();
         $comment->save();
 

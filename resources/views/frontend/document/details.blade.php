@@ -428,7 +428,7 @@
                     method: 'POST',
                     data: {
                         _token: '{{ csrf_token() }}',
-                        content: content,
+                        contents: content,
                         document_id: documentId
                     },
                     success: function(response) {
@@ -449,9 +449,9 @@
                     },
                     error: function(xhr) {
                         if (xhr.status === 401) {
-                            toastr.warning('Vui lòng đăng nhập để bình luận!');
+                            toastr.warning('Vui lòng đăng nhập để bình luận.');
                         } else {
-                            toastr.error('Đã xảy ra lỗi khi gửi bình luận.');
+                            toastr.error('Vui lòng nhập nội dung bình luận.');
                         }
                     }
                 });
