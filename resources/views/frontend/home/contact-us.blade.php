@@ -52,8 +52,8 @@
                                         </div>
                                         <div class="contact-info-content">
                                             <h5>Email</h5>
-                                            <p>vanhoa12092003@gmail.com</p>
-                                            <p>anhphuc2003@gmail.comm</p>
+                                            <p>tvh12092003@gmail.com</p>
+                                            <p>tvhee33@gmail.comm</p>
                                         </div>
                                     </div>
                                 </div>
@@ -64,7 +64,7 @@
                                         </div>
                                         <div class="contact-info-content">
                                             <h5>Giờ mở cửa</h5>
-                                            <p>T2 - T7 (10AM - 05PM)</p>
+                                            <p>T2 - T7 (10 AM - 05 PM)</p>
                                             <p>CN - <span class="text-danger">Đóng</span></p>
                                         </div>
                                     </div>

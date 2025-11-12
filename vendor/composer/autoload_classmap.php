@@ -44,6 +44,7 @@ return array(
     'App\\Models\\Publisher' => $baseDir . '/app/Models/Publisher.php',
     'App\\Models\\Rating' => $baseDir . '/app/Models/Rating.php',
     'App\\Models\\Role' => $baseDir . '/app/Models/Role.php',
+    'App\\Models\\Setting' => $baseDir . '/app/Models/Setting.php',
     'App\\Models\\Slide' => $baseDir . '/app/Models/Slide.php',
     'App\\Models\\Tag' => $baseDir . '/app/Models/Tag.php',
     'App\\Models\\Transaction' => $baseDir . '/app/Models/Transaction.php',

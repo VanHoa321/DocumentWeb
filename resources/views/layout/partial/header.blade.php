@@ -5,7 +5,7 @@
                 <div class="col-5 col-lg-3 col-xl-3">
                     <div class="header-middle-logo">
                         <a class="navbar-brand" href="{{ route('frontend.home.index') }}">
-                            <h2>Sense<span style="color:#11B76B">Lib</span></h2>
+                            <h2>Doc<span style="color:#11B76B">Onl</span></h2>
                         </a>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container position-relative">
                 <a class="navbar-brand" href="{{ route('frontend.home.index') }}">
-                    <h2 class="logo-scrolled">Sense<span style="color:#11B76B">Lib</span></h2>
+                    <h2 class="logo-scrolled">Doc<span style="color:#11B76B">Onl</span></h2>
                 </a>
                 <div class="mobile-menu-right">
                     <div class="search-btn">

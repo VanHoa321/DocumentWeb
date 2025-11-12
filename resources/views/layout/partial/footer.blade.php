@@ -5,7 +5,7 @@
                 <div class="col-md-6 col-lg-3">
                     <div class="footer-widget-box about-us">
                         <a href="{{ route("frontend.home.index") }}" class="footer-logo">
-                            <h2 style="color:white">Sense<span style="color:#11B76B">Lib</span></h2>
+                            <h2 style="color:white">Doc<span style="color:#11B76B">Onl</span></h2>
                         </a>
                         <p class="mb-1">
                             Trang tìm kiếm tài liệu trực tuyến, đăng tải mọi tài liệu một cách dễ dàng.
@@ -114,7 +114,7 @@
                     </div>
                     <div class="col-12 col-lg-4 align-self-center">
                         <p class="copyright-text">
-                            &copy; Copyright <span id="date"></span> <a href="#"> SenseLib </a> All Rights Reserved.
+                            &copy; Copyright <span id="date"></span> <a href="#"> DocOnl </a> All Rights Reserved.
                         </p>
                     </div>
                     <div class="col-12 col-lg-4 align-self-center">

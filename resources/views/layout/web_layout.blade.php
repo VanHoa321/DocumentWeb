@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
 
-    <title>SenseLib</title>
+    <title>DocOnl</title>
 
     <link rel="stylesheet" href="{{ asset('web-assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('web-assets/css/all-fontawesome.min.css') }}">
