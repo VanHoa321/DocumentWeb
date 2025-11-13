@@ -267,7 +267,7 @@ class AccountController extends Controller
             'title' => $request->title,
             'category_id' => $request->category_id,
             'publisher_id' => 1,
-            'cover_image' => $request->cover_image ? $request->cover_image : "/storage/files/1/Avatar/no-image.jpg",
+            'cover_image' => $request->cover_image ? $request->cover_image : "/storage/files/1/Avatar/1-RVN.jpg",
             'file_path' => $relative_path,
             'file_path_pdf' => $file_path_pdf,
             'vector_path' => $vector_path,
